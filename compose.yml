@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    image: payment-gateway:latest
+    container_name: payment-gateway
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - ./:/app
+    networks:
+      - payment_gateway_network
+    ports:
+      - "${PORT_EXPOSE}:${PORT}"
+
+networks:
+  payment_gateway_network:
+    name: payment_gateway_network
+    driver: bridge

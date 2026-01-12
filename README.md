@@ -1,7 +1,7 @@
 ### Supported Payment Gateways
 
-- [Xendit](https://docs.xendit.co/docs/overview)
-- [PayMongo](https://developers.paymongo.com/docs/introduction)
+- [Xendit](https://docs.xendit.co/docs/overview): Comprehensive suite of APIs and no code tools, you can seamlessly accept payments, send payouts, and manage your business finances with ease.
+- [PayMongo](https://developers.paymongo.com/docs/introduction): PayMongo is a payment gateway that allows businesses to easily accept payments from their customers online via credit/debit card (straight), BillEase (buy now, pay later), e-wallets, and online banking.
 
 ### Getting Started
 

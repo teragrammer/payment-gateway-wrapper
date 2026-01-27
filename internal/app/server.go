@@ -8,7 +8,8 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/teragrammer/payment-gateway-wrapper/internal/database"
+	"github.com/teragrammer/payment-gateway-wrapper/internal/database/mongo"
+	"github.com/teragrammer/payment-gateway-wrapper/internal/database/redis"
 )
 
 func Run(handler http.Handler, port string) {
@@ -33,8 +34,8 @@ func Run(handler http.Handler, port string) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	defer database.CloseMongo()
-	defer database.CloseRedis()
+	defer mongo.CloseMongo()
+	defer redis.CloseRedis()
 	err := srv.Shutdown(ctx)
 	if err != nil {
 		return

@@ -5,14 +5,14 @@ import (
 	"log"
 
 	"github.com/teragrammer/payment-gateway-wrapper/internal/config"
-	"github.com/teragrammer/payment-gateway-wrapper/internal/database"
-	"github.com/teragrammer/payment-gateway-wrapper/internal/migrations"
+	mongo2 "github.com/teragrammer/payment-gateway-wrapper/internal/database/mongo"
+	"github.com/teragrammer/payment-gateway-wrapper/internal/database/mongo/migrations"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func main() {
 	cfg := config.Load()
-	client, ctx, cancel, err := database.ConnectMongo(cfg.MongoURI)
+	client, ctx, cancel, err := mongo2.ConnectMongo(cfg.MongoURI)
 	if err != nil {
 		log.Fatal(err)
 	}

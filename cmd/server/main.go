@@ -9,6 +9,6 @@ import (
 func main() {
 	cfg := config.Load()
 
-	handler := routes.Register(cfg.JWTSecret)
+	handler := routes.Register()
 	app.Run(handler, cfg.Port)
 }

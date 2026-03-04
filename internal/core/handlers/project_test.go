@@ -10,7 +10,7 @@ import (
 	"github.com/teragrammer/payment-gateway-wrapper/internal/config"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/core/middleware"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/core/validations"
-	"github.com/teragrammer/payment-gateway-wrapper/internal/mocks"
+	"github.com/teragrammer/payment-gateway-wrapper/internal/test/testutils"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/utils"
 )
 
@@ -33,7 +33,7 @@ func TestCreateProjectHandler(t *testing.T) {
 		"name":      "Test",
 		"is_active": 1,
 	}, map[string]string{}, map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	})
 	if err != nil {
 		t.Fatalf("could not send post request to project handler: %v", err)
@@ -56,7 +56,7 @@ func TestBrowseProjectsHandler(t *testing.T) {
 		"search": "Test",
 	}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -77,7 +77,7 @@ func TestGetProjectHandler(t *testing.T) {
 
 	requestData := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -107,7 +107,7 @@ func TestUpdateProjectHandler(t *testing.T) {
 	}
 	query := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -128,7 +128,7 @@ func TestDeleteProjectHandler(t *testing.T) {
 
 	query := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router

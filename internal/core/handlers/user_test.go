@@ -9,8 +9,8 @@ import (
 	"github.com/teragrammer/payment-gateway-wrapper/internal/core/middleware"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/core/validations"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/database/mongo"
-	"github.com/teragrammer/payment-gateway-wrapper/internal/mocks"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/models"
+	"github.com/teragrammer/payment-gateway-wrapper/internal/test/testutils"
 	"github.com/teragrammer/payment-gateway-wrapper/internal/utils"
 )
 
@@ -36,7 +36,7 @@ func TestCreateUserHandler(t *testing.T) {
 	}
 	query := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -66,7 +66,7 @@ func TestBrowseUsersHandler(t *testing.T) {
 		"search": "test",
 	}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -87,7 +87,7 @@ func TestGetUserHandler(t *testing.T) {
 
 	requestData := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -120,7 +120,7 @@ func TestUpdateUserHandler(t *testing.T) {
 	}
 	query := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
@@ -140,7 +140,7 @@ func TestDeleteUserHandler(t *testing.T) {
 
 	query := map[string]string{}
 	headers := map[string]string{
-		"Authorization": "Bearer " + mocks.MockJWT("admin"),
+		"Authorization": "Bearer " + testutils.MockJWT("admin"),
 	}
 
 	// Set up the router
